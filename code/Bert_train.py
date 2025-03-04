@@ -29,8 +29,8 @@ def compute_accuracy(p):
     preds = preds.argmax(axis=1)  # 获取预测标签
     return {'accuracy': accuracy_score(labels, preds)}
 
-@profile
-def bert_train():
+# @profile
+def BERT_TRAIN():
     max_memory_usage = 0
     data_dir = "../dataset/promise_all/random_split/"
 
@@ -84,28 +84,8 @@ def bert_train():
             eval_dataset=val_dataset,
             compute_metrics=compute_accuracy,
         )
-        # 开始监控内存
-        process = psutil.Process(os.getpid())
-        def monitor_memory():
-            nonlocal max_memory_usage
-            while True:
-                memory_info = process.memory_info()
-                current_memory_usage = memory_info.rss
-                if current_memory_usage > max_memory_usage:
-                    max_memory_usage = current_memory_usage
-                time.sleep(0.1)  # 每0.1秒检查一次内存使用情况
-
-        import threading
-        memory_monitor = threading.Thread(target=monitor_memory)
-        memory_monitor.daemon = True
-        memory_monitor.start()
+        
         trainer.train()
-                # 停止监控
-        memory_monitor.join(timeout=1)
-
-        print(f"最大内存消耗: {max_memory_usage / (1024 ** 2):.2f} MB")
-
         # 训练结束后保存最终模型
         model.save_pretrained(output_path)
         
-bert_train()

@@ -100,7 +100,6 @@ def predicte(big_sentence, config):
     score = 0
     Changing_trend = ''
     matched_pattern = ''
-    matched_part = ''
     negative_word = 'no negative word'
     big_sentence = big_sentence.lower()
                     
@@ -124,9 +123,8 @@ def predicte(big_sentence, config):
             
     score = result[3]                 
     matched_pattern = result[1]
-    matched_part = big_sentence    
     
-    return (Changing_trend, list2str(matched_pattern[1:]), score, matched_part, negative_word)
+    return (Changing_trend, list2str(matched_pattern[1:]), score, negative_word)
 
     
 # @profile
@@ -150,7 +148,7 @@ def LQPR(test_data_path, result_dir, save_name, config):
     i = 0
     for big_sentence in sentences:
         
-        Changing_trend, matched_pattern, score, matched_seg, negative_word = predicte(big_sentence, config)
+        Changing_trend, matched_pattern, score, negative_word = predicte(big_sentence, config)
 
         i += 1
         predicte_labels.append(Changing_trend)
