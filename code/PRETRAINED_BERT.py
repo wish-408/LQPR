@@ -7,12 +7,13 @@ from memory_profiler import profile
 import os
 import time
 
-_, all_labels = load_data("../test_data/promise_all/promise_all.txt")
-label_encoder = LabelEncoder()
-label_encoder.fit_transform(all_labels) # 固定label_encoder
+
 
 # @profile
 def PRETRAINED_BERT(model_dir, test_data_path, result_dir, save_name):
+    _, all_labels = load_data("../dataset/Promise/promise_all.txt")
+    label_encoder = LabelEncoder()
+    label_encoder.fit_transform(all_labels) # 固定label_encoder
 
     model = BertForSequenceClassification.from_pretrained(model_dir)
     tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')

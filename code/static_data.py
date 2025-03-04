@@ -59,11 +59,4 @@ label_inv = {
     "-1 -1" : "1 1"    
 }
 
-
-
-TP = [0 for i in range(9)] # 真正例数：实际类别为 i 的样本被正确预测为 i 的数量。
-FN = [0 for i in range(9)] # 假负例数：实际类别为 i 的样本被错误预测为其他类别的数量。
-FP = [0 for i in range(9)] # 假正例数：实际类别不为 i 但被预测成 i 的样本数量
-num = [0 for i in range(9)] # 各种样本的数量
-
 API_KEY = "f483e5da818b1efa7efbb718f5ce716d48c5009ae14efe2b58446e7ac180605f"

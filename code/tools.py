@@ -14,7 +14,6 @@ negative_words = open('../pattern/negative_word.txt', 'r', encoding = 'utf-8').r
 
 #用于修饰的情态动词
 qualifier=["shall","must","shuold","will", "be able to","have", "can"]
-add_words=["","not","be"]
 
 word_num = {
     'one':'1',
@@ -133,20 +132,6 @@ def lcs(list1,list2):
     
     return LCS,(dp[n-1][m-1] - 1)/(len(list2) - 1)
 
-def get_word(s):
-    res=[' ']
-    for word in s.split(' '):
-        if word=='':
-            continue
-        if is_num(word): 
-            if '%' in word: # 特殊处理一下数字中带百分号的情况
-                res.append(word[0:-1])
-                res.append('%')
-                continue
-        res.append(word)
-    return res
-
-
 
 #将句子分割为单词列表
 def get_word(s):
@@ -192,7 +177,6 @@ def key_function(result):
     #按照最长公共子序列得分、惩罚得分、pattern规模来排序
 
 
-
 #找到一句需求描述的数字阈值
 def get_number(sequence):
     for word in sequence:
@@ -200,13 +184,6 @@ def get_number(sequence):
             return word
     return "none"
 
-#数字编码转字符串编码           
-def trans_trend(s):
-    if s[0]=='2':a=-1
-    else: a=int(s[0])
-    if s[1]=='2':b=-1
-    else: b=int(s[1])
-    return str(a) + ' ' + str(b)
 
 #暴力匹配（可用kmp优化）一个句子中是否包含某个短语
 def match(sentence1, sentence2):
@@ -244,32 +221,7 @@ def list2str(ls):
     res = ''
     for word in ls:
         res = res + ' ' + word
-    return res
-
-#写日志
-def wirte_to_txt(path, test_case, sentence, score, matched_pattern, matched_seg, predict_trend, really_trend, negative_word):
-    with open(path,'a',encoding='utf-8') as f :
-        f.write("* " + test_case + '\n')
-        f.write("* requirement description : " + sentence + '\n')
-        f.write("* score : " + str(score) + '\n')
-        f.write("* matched_part : " + matched_pattern + '\n')
-        f.write("* matched_seg : " + matched_seg + '\n')
-        f.write("* predict_trend : " + predict_trend + '\n')
-        f.write("* really_trend : " + really_trend + '\n')
-        f.write("* negative_word : " + negative_word + '\n')
-        f.write("-------------------------------------------" + '\n')       
-        f.write('\n')
-
-# #将一个句子划分为多个子句，每个子句内部的词汇相关性较高
-# def sentence_split(sentence):
-#     global doc
-#     sub_sentences = []
-#     doc = nlp(sentence)
-#     for seg_sentence in doc.sents: 
-#         doc1 = nlp(seg_sentence.text)
-#         sub_tree = get_all_sub_tree(doc1)
-#         sub_sentences.extend(sub_tree)
-#     return sub_sentences        
+    return res 
 
 
 def load_data(data_path):
@@ -302,7 +254,7 @@ def write_to_excel(path, data):
         result.append(row)
     result.append(data)
     result = pd.DataFrame(result)
-    header = ["approch", "w_p", "w_r", "w_f", "maco_precsion", "maco_recall", "maco_f1_score", "mico_precsion", "mico_recall", "mico_f1_score"]
+    header = ["approch", "w_p", "w_r", "w_f"]
     result.to_excel(path, header=header, index=False)
 
 def result_report(approch, save_path, predicte_labels, real_labels):
@@ -421,25 +373,10 @@ def result_report(approch, save_path, predicte_labels, real_labels):
     # print(f"* mico_recall : {mico_recall} ")
     # print(f"* mico_f1_score : {mico_f1_score} ")
     
-    row_data = [approch, w_p, w_r, w_f, maco_precsion, maco_recall, maco_f1_score, mico_precsion, mico_recall, mico_f1_score]
+    row_data = [approch, w_p, w_r, w_f]
     
     write_to_excel(save_path, row_data)
     
-
-def get_numbers(mean, variance):
-    n = 10
-    # 随机生成n - 1个数
-    numbers = np.random.randn(n - 1)
-    # 根据均值和方差公式计算出第n个数
-    sum_of_numbers = np.sum(numbers)
-    last_number = (n * mean - sum_of_numbers)
-    numbers = np.append(numbers, last_number)
-    # 调整生成的数，使其方差符合要求
-    current_mean = np.mean(numbers)
-    current_var = np.var(numbers)
-    factor = np.sqrt(variance / current_var)
-    new_numbers = (numbers - current_mean) * factor + mean
-    return new_numbers.tolist()
 
 def get_date_time():
     current_date = datetime.now()
@@ -457,7 +394,7 @@ def write_log(log_path, log_msg):
     
 
     
-full_languagePatterns = open('../pattern/pattern4.txt','r',encoding='utf-8').read().split('\n')
+full_languagePatterns = open('../pattern/patterns.txt','r',encoding='utf-8').read().split('\n')
 
 for pattern in full_languagePatterns:
     languagePatterns.append(get_word(pattern.split('$')[0]))

@@ -5,12 +5,13 @@ from memory_profiler import profile
 from tools import result_report, load_data, get_date_time
 from transformers import BertModel, BertTokenizer
 
-# # Load pre-trained Sentence Transformer Model. It will be downloaded automatically
-model = SentenceTransformer("all-MiniLM-L12-v2")
+
 
 # @profile
 def ZSL(test_data_path, result_dir, save_name):
-
+    # Load pre-trained Sentence Transformer Model. It will be downloaded automatically
+    model = SentenceTransformer("all-MiniLM-L12-v2")
+    
     #建立标签和标签具体内容的映射
     hash={
         "1 1" : "all must be, all of the",
