@@ -18,7 +18,7 @@ def LLM_TALK(test_data_path, result_dir, save_name):
 
         client = Together(api_key=os.environ.get("TOGETHER_API_KEY"))
 
-        question_path = '../prompt/question_in_English.txt'
+        question_path = '../prompt/question.txt'
         question = ''
         with open(question_path,'r',encoding='utf-8') as f:
             for line in f:
