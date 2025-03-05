@@ -68,7 +68,7 @@ def LQPR(test_data_path, result_dir, save_name, config):
 ```
 
 ## Usage Example of LQPR
-You can import the `predicte` method of `LQPR` in any function. This method takes a natural language sequence and a configuration dictionary as inputs. Note that before calling this function, you also need to execute the `init_pattern_vecs()` function first to load all the `pattern`s and their word vector representations. The usage example is as follows:
+You can import the `predicte` method of `LQPR` in any function. This method takes a natural language sequence and a configuration dictionary as inputs. Note that before calling this function, you also need to execute the `init_pattern_vecs()` function first to load all the `patterns` and their word vector representations. The usage example is as follows:
 ```python
 from LQPR import init_pattern_vecs, predicte
 
