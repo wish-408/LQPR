@@ -9,7 +9,7 @@ def LLM_TALK(test_data_path, result_dir, save_name):
 
     models = ['google/gemma-2-27b-it', 'deepseek-ai/deepseek-llm-67b-chat', 'meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo']
     
-    for i in range(1):
+    for i in range(3):
 
         model_name = models[i]
         print(model_name)

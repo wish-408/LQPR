@@ -32,7 +32,7 @@ def compute_accuracy(p):
 # @profile
 def BERT_TRAIN():
     max_memory_usage = 0
-    data_dir = "../dataset/promise_all/random_split/"
+    data_dir = "../dataset/Promise/random_split/"
 
     for split_dir in os.listdir(data_dir):
 

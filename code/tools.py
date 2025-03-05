@@ -8,8 +8,7 @@ import pandas as pd
 import os
 from datetime import datetime
 
-languagePatterns=[]
-labels=[]
+#否定词汇列表
 negative_words = open('../pattern/negative_word.txt', 'r', encoding = 'utf-8').read().split('\n')
 
 #用于修饰的情态动词
@@ -150,15 +149,6 @@ def get_word(s):
         res.append(word)
     return res
 
-#求一个得分阈值来划分可能的匹配模式
-def get_score_threshold(sentence):
-    scores=[]
-    for pattern in languagePatterns:
-        _,score=lcs(sentence,pattern)
-        scores.append(score)
-    scores=np.array(scores)
-    q3 = np.percentile(scores, 99)  #求99%分位数
-    return q3
  
 #根据最长公共子序列的紧凑程度进行罚分   
 def get_punishment_score(loc_delta,len_pattren,score): # 如果远距离间隔匹配会被罚得分
@@ -256,6 +246,11 @@ def write_to_excel(path, data):
     result = pd.DataFrame(result)
     header = ["approch", "w_p", "w_r", "w_f"]
     result.to_excel(path, header=header, index=False)
+
+def format_number(number):
+    rounded_number = round(number, 3)
+    formatted_number = "{:.3f}".format(rounded_number)
+    return formatted_number
 
 def result_report(approch, save_path, predicte_labels, real_labels):
     
@@ -373,7 +368,7 @@ def result_report(approch, save_path, predicte_labels, real_labels):
     # print(f"* mico_recall : {mico_recall} ")
     # print(f"* mico_f1_score : {mico_f1_score} ")
     
-    row_data = [approch, w_p, w_r, w_f]
+    row_data = [approch, format_number(w_p), format_number(w_r), format_number(w_f)]
     
     write_to_excel(save_path, row_data)
     
@@ -394,11 +389,7 @@ def write_log(log_path, log_msg):
     
 
     
-full_languagePatterns = open('../pattern/patterns.txt','r',encoding='utf-8').read().split('\n')
 
-for pattern in full_languagePatterns:
-    languagePatterns.append(get_word(pattern.split('$')[0]))
-    labels.append(pattern.split('$')[1])
     
     
     

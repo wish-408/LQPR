@@ -6,6 +6,8 @@ import random
 import spacy
 import numpy as np
 
+languagePatterns=[]
+labels=[]
 pattern_vecs = []
 
 # 词向量表
@@ -55,6 +57,11 @@ def get_split_sentence_vec(word_list) :
         
 
 def init_pattern_vecs():
+    full_languagePatterns = open('../pattern/patterns.txt','r',encoding='utf-8').read().split('\n')
+    for pattern in full_languagePatterns:
+        languagePatterns.append(get_word(pattern.split('$')[0]))
+        labels.append(pattern.split('$')[1])
+        
     for pattern in languagePatterns:
         print(' '.join(pattern[1: ]))
         pattern_vecs.append(sentence_vector(' '.join(pattern[1: ])))
@@ -69,7 +76,6 @@ def matching(sentence, config):
     possible_result = []
     num = len(languagePatterns)
     word_list = get_word(sentence)
-    split_sentence_vecs = get_split_sentence_vec(word_list)
     for i in range(num):
         pattern = languagePatterns[i]
         LCS, score = lcs(word_list,pattern)
@@ -79,7 +85,9 @@ def matching(sentence, config):
                 
          # 只使用语义匹配        
         if not use_sync:
-            score = semantic_smilarity(split_sentence_vecs, pattern_vecs[i]) 
+            lcs_str = ' '.join(word_list[index] for index in LCS)
+            lsc_vec = sentence_vector(lcs_str)
+            score = cosine_similarity(lsc_vec, pattern_vecs[i])
         
         # 词形相似度 + 语义相似度
         if use_semantic and use_sync:
