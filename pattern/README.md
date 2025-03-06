@@ -1,5 +1,5 @@
 # Explanation of Pattern Markings
-In `pattern/patterns.txt`, you will see the following content:
+In `patterns.txt`, you will see the following content:
 ```
 100 percent of $1 0
 within 100 $0 -1
