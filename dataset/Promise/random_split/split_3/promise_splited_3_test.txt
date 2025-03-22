@@ -1,0 +1,177 @@
+1@System shall let administrator de-activate a customer account in under 1 minute. Customer will no longer be able to access the website.@0 -1
+
+2@100% of the cardmember and merchant services representatives shall use the Disputes application regularly after a 2-day training course. @1 0
+
+3@On a 112k connection or faster  the system response time for all operations must be no more than 3 seconds. @0 -1
+
+4@The system shall achieve 95% up time. @1 0
+
+5@System shall let customers register on the website as a ìunlimited movie subscriberî user in under 10 minutes.@0 -1
+
+6@After one use a user should understand and remember 90% of the system usage and navigation. @1 0
+
+7@The mobile app shall function in airplane mode whenever wireless connection is unavailable.@1 1
+
+8@The recycled parts audit report shall be returned to the user within 10 seconds.  The audit report shall be returned within 10 seconds. @0 -1
+
+9@The product shall give users feedback when necessary. 80% of the users surveyed report that the product accurately confirms their actions. @1 0
+
+10@The message board shall contain the 5 most recently posted messages on the league page. @1 -1
+
+11@The system shall cater to 10 simultaneous users from 9am to 5pm. @1 -1
+
+12@All additions of new users and modifications to user access shall be recorded on the User Report. @1 1
+
+13@The Disputes application shall interface with the Cardmember Information Database.  The Cardmember Information Database provides detailed information with regard to a cardmember.  All cardmember detail information must be obtained from the Cardmember Information Database. @1 1
+
+14@Any interface between a user and the automated system shall have a maximum response time of 5 seconds  unless noted by an exception below.@0 -1
+
+15@The software shall be expected to manage the training program curriculum and session scheduling for a minimum of 3 years.@1 0
+
+16@Minimum Hard Disk Space: 400MB. @1 0
+
+17@The product shall be available 99% of the time. Rationale: To avoid service interruption during busiest customer service response periods. The product shall be available 99.99% of the time for regular business days.@1 0
+
+18@Out of 500 accesses to the database, the database is available 995 times.@1 0
+
+19@the system response time for all operations must be for 90% of the time. @1 0
+
+20@The Disputes application shall be available 24x7x365  with the exception of the following scheduled maintenance windows.  Monday ?Saturday 3:00am to 4:00am EST Sunday 1:00amd to 5:00am EST @1 1
+
+21@A new user must be able to be added to the system within 10 minutes.  90% of new users are able to log into the system within 10 minutes. @0 -1
+
+22@The product should be able to be used by 90% of novice users on the Internet. @1 0
+
+23@The network shall achieve 90% up time.@1 0
+
+24@System shall let administrators generate unique pre-paid pins in under 2 minutes and generate an Excel file with the generated PINs.@0 -1
+
+25@The service shall be available for use 18 hours per day, 300 days per year.@1 1
+
+26@The streaming server will support 50 simultaneous streaming connections.@1 0
+
+27@The application shall be able to complete every user transaction within one fourth of a second of receiving the request over the network.@0 -1
+
+28@The product shall be available 24 hours per day  seven days per week.@1 1
+
+29@Any interface between a user and the automated system shall have a maximum response time of 5 seconds  unless noted by an exception below.@0 -1
+
+30@2 out of 3 Program Administrators/Nursing Staff Members shall successfully be able to use the system to manage the scheduling of classes and clinicals. @1 0
+
+31@System shall let existing customers log into the website with their email address and password in under 5 seconds.@0 -1
+
+32@For each emerging target market  it shall take no more than 5 days to configure the product for that market language. @0 -1
+
+33@The WCS system shall be available at all times as long as IBM internal intranet W3 is accessible. The WCS system will be available 95% of the time IBM抯 internal intranet W3 is available. @1 0
+
+34@The product shall be able to process 10 000 transactions per hour within two years of its launch.  This number will increase to 20 000 by Release 2.@1 0
+
+35@The product shall able to handle a large number of games simultaneously.@1 1
+
+36@The product shall be able to process all transactions.The product shall process minimum of 1 million transactions per year. @1 0
+
+37@System shall let customers register on the website  in under 5 minutes. @0 -1
+
+38@The streaming server will support a maximum of 700 movies; new servers can be added to support more movies.@1 0
+
+39@The product shall be updated on a regular basis.The product will have a new major feature introduced every six months and quarterly maintenance releases every six months. @1 -1
+
+40@All actions that modify an existing dispute case must be recorded in the case history. @1 1
+
+41@When purchasing a streaming movie or pre-paid card via credit card  the processing time should have a maximum response time of 15 seconds.@0 -1
+
+42@The application shall have a downtime of at most 10 minutes per year.@0 -1
+
+43@90% of untrained realtors shall be able to install the product on their device without printed instructions @1 0
+
+44@100% of all logons shall be by either company employees or external users with company-approved user IDs. @1 0
+
+45@The Disputes application shall support 350 concurrent users without any degradation of performance in the application. @1 0
+
+46@70% of registered users shall find a solution to their problem using the support site. @1 0
+
+47@The system shall refresh the display every 60 seconds.  @1 -1
+
+48@98% of the user workstations shall meet the minimum software requirements prior to implementation: Microsoft Internet Explorer 5.0. Microsoft .NET Framework 1.1. @1 0
+
+49@The product shall be able support 1000 simultaneous users. @1 0
+
+50@Users shall be able to view at least 25 NFL player statistics and points on each page. @1 0
+
+51@Users should only have to navigate through a maximum of 4 pages  to create an account with the website	. @0 -1
+
+52@The System shall allow for a minimum of  6 users to work at the same time. @1 0
+
+53@All business rules specified in the Disputes System shall be in compliance with the Merchant Operating Regulations. @1 1
+
+54@The response time shall be fast enough for 95% of responses. @1 0
+
+55@The product and/or dependent databases/filesystems shall not crash 100% of the time that malicious data is input into the product. @1 0
+
+56@The website shall be available for use 24 hours per day  365 days per year.@1 1
+
+57@Total lead cycle time must be completed for 90% of lead volume between the business hours of 8AM CST to 8PM CST. @1 0
+
+58@The product shall produce search results in an acceptable time @-1 -1
+
+59@The product shall be able to handle 10 000 concurrent users within 2 years of the initial launch. @1 0
+
+60@ System shall let customers cancel their account  process shall take no longer than 2 minutes.  Database will mark the account as inactive  and user will not be able to log into the website.@0 -1
+
+61@The users should be able to easily use the system to successfully complete their budgets  within the stipulated time for completion. With a week of training prior to product implementation  98% of the users shall complete their budgets within the stipulated time. @1 0
+
+62@The website shall be capable of supporting 100 000 customers.@1 0
+
+63@90% of survey respondents from each target market country will find that the language of the product is acceptable. @1 0
+
+64@Izogn Administrator must be able to update the category listings on the website within 2 minutes. @0 -1
+
+65@On a 56k connection  the system response time for all operations must be no more than 6 seconds 90% of the time.@1 0
+
+66@The system must use a point and click interface. 100% of all selection and navigation functionality must be able to be activated/selected by either a mouse or a keyboard. @1 0
+
+67@Customers should be able to purchase and watch a pre-determined movie in under 3 minutes.@0 -1
+
+68@The average number of recycled parts records per day shall be 50 000. @1 -1
+
+69@On a 56k connection  the system response time for all operations must be no more than 6 seconds. @0 -1
+
+70@No lead evaluation will complete in a time period longer than 25 seconds for 97% of all leads processed.@1 0
+
+71@The System shall allow for a minimum of  6 users to work at the same time.@1 0
+
+72@System shall let existing customers log into the website with their email address and password in under 5 seconds. @0 -1
+
+73@The WCS system must run queries to the WCS databases once again (on a specified day) to update the available data available to CCR users. Queries must be made to external databases for data refresh once a week. @1 -1
+
+74@The tool shall create a summary report in an acceptable time.@-1 -1
+
+75@The WCS system shall be available at all times as long as IBMís internal intranet W3 is accessible. The WCS system will be available 95% of the time IBMís internal intranet W3 is available.@1 0
+
+76@The product interface should be fast. The response time of the product interface should not exceed 2 seconds 90% of the time. For 10% of the time  the response time should not be more than 10 seconds.@1 0
+77@The product shall be capable of handling the existing 1000 users. This number is expected to grow 5 times within the next year. @1 0
+
+78@The system must be available for use between 7:00AM and 11:59PM all days of the year. @1 1
+
+79@The interface shall be appealing to callers and supervisors. In the interface and usability survey  80% of beta testers must report that the interface is appealing. @1 0
+
+80@The product shall have audit capabilities.The product shall store messages for a minimum of one year for audit and transaction tracking purposes. @1 0
+
+81@the response time should not be more than 10 seconds. @0 -1
+
+82@The number of mistakes noted by the students shall be decreased by 50% in the first year. @0 -1
+
+83@System shall let the administrator add/remove categories on the website in under 5 minutes.@0 -1
+
+84@Izogn Administrator must be able to add new products to the website within 2 minutes. @0 -1
+
+85@A new user shall be able to navigate through the league and team pages within 30 seconds of reaching the start-up page. @0 -1
+
+86@95% of saved user settings shall be restored when the app restarts.@1 0
+
+87@The recycled parts audit report shall be returned to the user within 10 seconds.  The audit report shall be returned within 10 seconds.@0 -1
+
+88@The response shall be fast enough to avoid interrupting the userís flow of thought.  90% of tasks shall complete within 5 seconds.  98% of tasks shall complete within 8 seconds.@1 0
+
+89@System shall let administrator de-activate a customer account in under 1 minute.  @0 -1
+

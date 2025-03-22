@@ -1,0 +1,100 @@
+1@The system must complete deployment and go live within 1 minute after inserting the USB.@0 -1
+2@The system can support up to 1000 customers logging in simultaneously.@1 0
+3@The system can retrieve 200 products per second.@1 0
+4@The time taken to add products to the shopping cart must not exceed 2 milliseconds.@0 -1
+5@The response time for searching a specified product must not exceed 1 second.@0 -1
+6@The system can send emails to customers and suppliers within 1 second.@0 -1
+7@The time taken to verify a credit card must not exceed 2 seconds.@0 -1
+8@The response time for retrieving shipping costs must not exceed 2 seconds.@0 -1
+9@The system can recover 1000 records per second.@1 0
+10@The system’s availability must reach 99.99%.@1 0
+11@Query time must not exceed 5 seconds.@0 -1
+12@Sending hyperlinks to the default browser must be completed within 1 second.@0 -1
+13@The loading time for the program must not exceed 10 seconds.@0 -1
+14@Sorting results must take no longer than 0.1 seconds.@0 -1
+15@The results page should display 100 results.@1 0
+16@The ETCS must support train speeds of up to 500 km/h.@1 0
+17@If specified, the driver must confirm the transfer from full supervision to partial supervision within 5 seconds.@0 -1
+18@Data required for accident investigations must be retained for at least 24 hours, and the data details must be sufficient.@1 0
+19@The train running number should consist of a maximum of 8 digits.@0 -1
+20@The system can generate reports within 1 second.@0 -1
+21@The time for users to log into the system must not exceed 5 seconds.@0 -1
+22@The system should support a maximum of 5000 concurrent users.@1 0
+23@The response time for processing orders must not exceed 2 seconds.@0 -1
+24@The system can back up data daily and complete this within 5 minutes.@0 -1
+25@The processing time for user feedback submissions should be less than 3 seconds.@0 -1
+26@The system must query inventory status within 1 second.@0 -1
+27@The time for data migration should be completed within 8 hours.@0 -1
+28@The system must support fast recovery, and data recovery time must not exceed 2 minutes.@0 -1
+29@The average response time for each user search should not exceed 1 second.@0 -1
+30@The system’s load capacity during peak periods must reach 2000 concurrent connections.@1 0
+31@The system must be able to generate invoices within 1 second.@0 -1
+32@The loading time for product categorization must not exceed 1 second.@0 -1
+33@The time for users to download content must not exceed 3 seconds.@0 -1
+34@The display time for each customer review should be within 0.5 seconds.@0 -1
+35@The system must conduct a risk assessment before each transaction, and the time must not exceed 2 seconds.@0 -1
+36@The user file upload limit should be 5 MB, ensuring upload time does not exceed 5 seconds.@0 -1
+37@The system’s data synchronization delay must not exceed 1 second.@0 -1
+38@The system must support at least 10 payment methods.@1 0
+39@The system should be able to process 100 user requests per second.@1 0
+40@The detailed information page of a product should load within 1 second.@0 -1
+41@Each user can add a maximum of 50 products to the shopping cart.@0 -1
+42@The system must conduct a security audit every month, lasting at least 30 minutes.@1 0
+43@The time to generate user behavior reports should be within 5 seconds.@0 -1
+44@Users should be able to recover their account password within 2 seconds.@0 -1
+45@The error rate during system operation should not exceed 0.01%.@0 -1
+46@The response time for product recommendations should be within 2 seconds.@0 -1
+47@The system can handle 500 SMS notifications within 1 minute.@0 -1
+48@All user data should be processed a maximum of 2 times within 24 hours.@0 -1
+49@The time taken to generate log files each time should not exceed 1 second.@0 -1
+50@The processing time for changing product prices must not exceed 5 seconds.@0 -1
+51@The user access information should be updated within 1 second.@0 -1
+52@The system’s warehouse management should complete inventory adjustments in 3 seconds.@0 -1
+53@All system operation audit logs should be retained for at least 30 days.@1 0
+54@The system should provide details of the last order within 1 second.@0 -1
+55@The response time for submitting complaints should be within 3 seconds.@0 -1
+56@The average processing time for each business logic request should not exceed 2 seconds.@0 -1
+57@The system must provide a security verification code during each login, with processing time not exceeding 2 seconds.@0 -1
+58@User preference settings should be saved within 1 second.@0 -1
+59@The response time of the system under high load conditions should not exceed 3 seconds.@0 -1
+60@All product images should load within 2 seconds.@0 -1
+61@The system must automatically identify and process duplicate orders, with processing time not exceeding 2 seconds.@0 -1
+62@The update of user address information should be completed within 1 second.@0 -1
+63@The system should support integration with at least 100 data sources.@1 0
+64@After the system is activated, the loading time for the first page should not exceed 5 seconds.@0 -1
+65@The sending of all emails should trigger within 2 seconds.@0 -1
+66@The system should be able to support at least 5 language interfaces.@1 0
+67@The system must ensure that user funds are credited within 3 seconds.@0 -1
+68@The time taken for all file downloads should not exceed 5 seconds.@0 -1
+69@The system must perform a status self-check every hour, with a response time within 1 second.@0 -1
+70@The confirmation time for users changing settings on the page should not exceed 2 seconds.@0 -1
+71@The system must send alarms within 30 seconds after a fault occurs.@0 -1
+72@All API response times should be less than 0.5 seconds.@0 -1
+73@The system must set the automatic logout time for inactive users to 10 minutes.@1 -1
+74@The system can display the most recent 5 processed order information within 1 second.@0 -1
+75@The download time for software updates must not exceed 1 minute.@0 -1
+76@The maximum data record capacity supported by the system should reach 1 million records.@1 0
+77@The system should support data encryption and complete encryption operations within 1 second.@0 -1
+78@The average processing time for all user-submitted review requests should not exceed 4 hours.@0 -1
+79@The system’s default initialization time should be within 10 seconds.@0 -1
+80@The maximum number of permissions for all user roles should be limited to 10.@0 -1
+81@The system should support 500 concurrent live stream users.@1 0
+82@The loading time for product tags should be completed within 0.5 seconds.@0 -1
+83@The system must ensure the integrity of monthly data backups, with recovery time not exceeding 30 minutes.@0 -1
+84@The time for users to upgrade versions should not exceed 1 minute.@0 -1
+85@The order processing success rate of the system should reach 99%.@1 0
+86@The system will provide feedback within 10 seconds after an error occurs.@0 -1
+87@The loading time for each system interface must not exceed 1 second without blocking.@0 -1
+88@The system must conduct security checks every 30 minutes during peak periods.@1 -1
+89@The specifications of each product should load within 2 seconds.@0 -1
+90@The processing rate for user feedback should be above 90%.@1 0
+91@The system must be updated at least 3 times a year to introduce new features.@1 0
+92@All user account information must undergo random checks at least once within 24 hours@1 0
+93@The system should support at least 500 concurrent users without causing performance degradation exceeding 10%.@1 0
+94@Data backup process must be completed within 30 minutes during the night.@0 -1
+95@The availability of the application must reach 99.9%@1 0
+96@The system should handle 1000 transactions per second with a latency not exceeding 500 milliseconds.@1 0
+97@Password strength must comply with at least 8 characters, including a combination of letters, numbers, and special characters.@1 0
+98@The system should support automatic archiving of log files, with storage time not less than 3 months.@1 0
+99@The account should be locked for 30 minutes.@1 -1
+100@System update time should not exceed 2 hours per month and should not affect normal user operations@0 -1

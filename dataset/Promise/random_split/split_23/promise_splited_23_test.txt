@@ -1,0 +1,178 @@
+1@Izogn Administrator must be able to update the category listings on the website within 2 minutes. @0 -1
+
+2@Total lead cycle time must be completed for 99% of lead volume during off business hours. @1 0
+
+3@The website shall achieve 99.5% up time. @1 0
+
+4@No lead evaluation will complete for 97% of all leads processed. @0 -1
+
+5@The system must be available for use between 7:00AM and 11:59PM all days of the year. @1 1
+
+6@The service shall be available for use between the hours of 9am and 5pm.@1 0
+
+7@The display of all the pages will be correct in 95% of the resolutions  prior to implementation.  @1 0
+
+8@The product shall be able to process all transactions.The product shall process minimum of 1 million transactions per year. @1 0
+
+9@The website shall be capable of supporting 100 000 customers.@1 0
+
+10@Customers should be able to purchase and watch a pre-determined movie in under 3 minutes.@0 -1
+
+11@The system shall be able to manage all of the data requests/processing during working hours.@1 1
+
+12@system shall be able to handle all of the user requests/usage during business hours. @1 1
+
+13@The CMA report shall be returned no later 60 seconds after the user has entered the CMA report criteria. @0 -1
+
+14@After one use a user should understand and remember 90% of the system usage and navigation. @1 0
+
+15@System shall let Izogn Manager access sales and usage statistics in under 2 minutes.@0 -1
+
+16@The website shall be capable of supporting 100 000 customers. @1 0
+
+17@A new user shall be able to navigate through the league and team pages within 30 seconds of reaching the start-up page. @0 -1
+
+18@ System shall let customers cancel their account  process shall take no longer than 2 minutes.  Database will mark the account as inactive  and user will not be able to log into the website.@0 -1
+
+19@The website shall load fast to display the latest news.@-1 -1
+
+20@The process must fit within the processing time conditions set forth by the Auto Rep Assignment process in which a lead is assigned within 3 minutes of the total life cycle. @0 -1
+
+21@The response shall be fast enough to avoid interrupting the user flow of thought.  90% of tasks shall complete within 5 seconds.  98% of tasks shall complete within 8 seconds. @1 0
+
+22@The Disputes application shall interface with the Letters application.  This will allow the Disputes application to request letters as part of the dispute initiation and dispute follow up process. All letter requests must be sent to the Print Letter Utility application. @1 1
+
+23@System shall let administrator add/remove movies on the website in under 5 minutes. @0 -1
+
+24@The preferred repair facility ratings shall be saved within 5 seconds. The save shall occur within 5 seconds. @0 -1
+
+25@If projected  the data must be readable.  On a 10x10 projection screen  90% of viewers must be able to read Event / Activity data from a viewing distance of 30 @1 0
+
+26@System shall let administrators generate unique pre-paid pins in under 2 minutes and generate an Excel file with the generated PINs.@0 -1
+
+27@The streaming server will support 50 simultaneous streaming connections.@1 0
+
+28@The network shall achieve 90% up time.@1 0
+
+29@System shall let customers register on the website in under 10 minutes. @0 -1
+
+30@The product shall process messages within 2 seconds.The product shall have a maximum message processing time of 2 seconds@0 -1
+
+31@The system shall cater to 10 simultaneous users from 9am to 5pm. @1 -1
+
+32@The recycled parts audit report shall be returned to the user within 10 seconds.  The audit report shall be returned within 10 seconds. @0 -1
+
+33@The WCS system shall use appropriate nomenclature and terminology as defined by the Corporate Community Grants organization. All interfaces and reports will undergo usability tests by CCR users. @1 1
+
+34@The product shall be expected to operate within the maximum maintenance budget for a minimum of 2 years. @1 0
+
+35@The product shall process messages within 2 seconds.The product shall have a maximum message processing time of 2 seconds. @0 -1
+
+36@The product shall able to handle a large number of games simultaneously.@1 1
+
+37@the time exceed 10 seconds should not be more than 10% of the time. @0 -1
+
+38@The system shall be easy to use by callers and supervisors. Callers and supervisors must be able to accomplish any system task within 2 minutes. @0 -1
+
+39@The product shall poll the system for messages every second.The product shall poll the system for new messages at a maximum of every 1 second. @0 -1
+
+40@The query results shall be presented no later than 45 seconds after the user has input the query parameters.@0 -1
+
+41@The detailed report shall be returned no later than 90 seconds after the user has entered the report criteria.@0 -1
+
+42@the system response time for all operations must be for 90% of the time. @1 0
+
+43@System shall let existing customers log into the website with their email address and password in under 5 seconds. @0 -1
+
+44@The website shall be available for use 24 hours per day  365 days per year. @1 1
+
+45@On a 56k connection  the system response time for all operations must be no more than 6 seconds. @0 -1
+
+46@Rreports must be easy to generate. eports must be generated within one button click and exported within one button click (after selecting the report). @0 -1
+
+47@90% of survey respondents from each target market country will find that the date and time formatting of the product is correct. @1 0
+
+48@The product shall be able to handle up to 1500 simultaneous users. The system shall perform with 1500 users as a time. @1 0
+
+49@The product shall provide Error Tracking Services.The product shall help the System Administrators and DBAs to resolve transaction errors 99% of the time. @1 0
+
+50@The device shall update the status information every 120 seconds.@1 -1
+
+51@System shall let the administrator add/remove categories on the website in under 5 minutes. @0 -1
+
+52@The product shall be able to process all transactions.The product shall process minimum of 1 million transactions per year.@1 0
+
+53@The website shall be available for use 24 hours per day  365 days per year.@1 1
+
+54@100% of the cardmember and merchant services representatives shall use the Disputes application regularly after a 2-day training course. @1 0
+
+55@no more than 4% for the remaining responses. @0 -1
+
+56@The system shall be capable of processing 100% of nursing students and their classes for the next 10 years. @1 0
+
+57@The recycled parts audit report shall be returned to the user within 10 seconds.  The audit report shall be returned within 10 seconds.@0 -1
+
+58@The users should be able to easily use the system to successfully complete their budgets  within the stipulated time for completion. With a week of training prior to product implementation  98% of the users shall complete their budgets within the stipulated time. @1 0
+
+59@System shall let existing customers log into the website with their email address and password in under 5 seconds.@0 -1
+
+60@The interface shall be appealing to callers and supervisors. In the interface and usability survey  80% of beta testers must report that the interface is appealing. @1 0
+
+61@No lead evaluation will complete in a time period longer than 25 seconds for 97% of all leads processed.@1 0
+
+62@Total lead cycle time must be completed in 5 minutes for 90% of lead volume between the business hours of 8AM CST to 8PM CST; then 3 minutes for 99% of lead volume during off business hours.@1 0
+
+63@The website shall be able to support 500 simultaneous visitors.@1 0
+
+64@The server shall synchronize with the backup system every 2 hours.@1 -1
+
+65@Users shall feel satisfied using the product.  85% of all users will be satisfied with the product. @1 0
+
+66@The system shall be easy to learn by callers and supervisors. Callers and supervisors shall learn how to use the system within 10 minutes. @0 -1
+
+67@The Disputes application shall interface with the Cardmember Posting and Billing System.  This will allow the Disputes application to request adjustments to cardmember and merchant accounts. All adjustment requests must be sent to the Cardmember Posting and Billing System. @1 1
+
+68@New branches/complexes/districts/regions and revenue/expense accounts added to the BDW  must be reflected in the RFS system. 100% of the entities (mentioned above) available as of October month-end  will be loaded into the RFS system  prior to the budget start process. @1 0
+
+69@The product shall make the users want to use it. 80% of the users surveyed report they are regularly using the product after the first 2 weeks post-launch. @1 0
+
+70@When purchasing a streaming movie or pre-paid card via credit card  the processing time should have a maximum response time of 15 seconds.@0 -1
+
+71@The application shall be able to complete every user transaction within one fourth of a second of receiving the request over the network.@0 -1
+
+72@The product shall be updated on a regular basis.The product will have a new major feature introduced every six months and quarterly maintenance releases every six months. @1 -1
+
+73@The system shall be responsive. At the DePaul TeleServices Center  when a supervisor uses the system to view a callers schedule  the system response time must be no more than 2 seconds 90% of the time and no more than 5 seconds the rest of the time.@1 0
+
+74@The product shall be capable of handling up to 1 000 concurrent requests.  This number will increase to 2 000 by Release 2.  The concurrency capacity must be able to handle peak scheduling times such as early morning and late afternoon hours.@1 0
+
+75@The RFS system shall be available 90% of the time all year  and 98% during the budgeting period.  @1 0
+
+76@All movies shall be streamed on demand  at any time of the day. @1 1
+
+77@System shall let administrator de-activate a customer account in under 1 minute. Customer will no longer be able to access the website.@0 -1
+
+78@100% of saved user preferences shall be restored when system comes back online. @1 0
+
+79@The server will support a maximum of 1 000 simultaneous users.@1 0
+
+80@Test files shall be loaded up to 5 times throughout the year from the BDW. @0 -1
+
+81@The RFS system should be available 24/7  especially during the budgeting period.  @1 0
+
+82@Aside from server failure  the software product shall achieve 99.99% up time. @1 0
+
+83@The server will support a maximum of 1000 simultaneous users. @1 0
+
+84@The application shall be able to complete every user transaction within one fourth of a second of receiving the request over the network. @0 -1
+
+85@98% of the user workstations shall meet the minimum software requirements prior to implementation: Microsoft Internet Explorer 5.0. Microsoft .NET Framework 1.1. @1 0
+
+86@The system shall be responsive. At the DePaul TeleServices Center  when a supervisor uses the system to view a callers schedule  the system response time must be no more than 2 seconds.  @0 -1
+
+87@100% of customers will be able to receive automatic software updates transmitted to the installed product. @1 0
+
+88@All additions of new users and modifications to user access shall be recorded on the User Report. @1 1
+
+89@The product shall poll the system for messages every second.The product shall poll the system for new messages at a maximum of every 1 second.@0 -1
+
