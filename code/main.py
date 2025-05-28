@@ -11,22 +11,22 @@ import os
 import time
 
 
-# 训练30个bert模型
+# Train 30 BERT models
 def bert_train(): 
     BERT_TRAIN()
 
-# 实验1
+# Experiment 1
 def RQ1():
     
     config = {  
-        'use_inv' : True,
-        'use_sync' : True,
-        'use_semantic' : True,
-        'weight' : 0.7
+        'use_inv': True,
+        'use_sync': True,
+        'use_semantic': True,
+        'weight': 0.7
     }
     
     init_pattern_vecs()
-    data_dir = "../dataset/Promise/random_split/" # 随机划分的Promise训练-测试集
+    data_dir = "../dataset/Promise/random_split/"  # Randomly split Promise training-test sets
     for split_dir in os.listdir(data_dir):
         print(split_dir)
 
@@ -46,10 +46,10 @@ def RQ1():
         
 def RQ2():
     config = {  
-        'use_inv' : True,
-        'use_sync' : True,
-        'use_semantic' : True,
-        'weight' : 0.7
+        'use_inv': True,
+        'use_sync': True,
+        'use_semantic': True,
+        'weight': 0.7
     }
     init_pattern_vecs()
     test_data_dirs = ["PURE", "Shaukat_et_al", "LLM-GEN"]
@@ -75,34 +75,34 @@ def RQ2():
         
 def RQ3():
     configs = [{  
-        'use_inv' : True,
-        'use_sync' : True,
-        'use_semantic' : True,
-        'weight' : 0.7
+        'use_inv': True,
+        'use_sync': True,
+        'use_semantic': True,
+        'weight': 0.7
     },
     {  
-        'use_inv' : False,
-        'use_sync' : True,
-        'use_semantic' : True,
-        'weight' : 0.7
+        'use_inv': False,
+        'use_sync': True,
+        'use_semantic': True,
+        'weight': 0.7
     },
     {  
-        'use_inv' : True,
-        'use_sync' : False,
-        'use_semantic' : True,
-        'weight' : 0.7
+        'use_inv': True,
+        'use_sync': False,
+        'use_semantic': True,
+        'weight': 0.7
     },
     {  
-        'use_inv' : True,
-        'use_sync' : True,
-        'use_semantic' : False,
-        'weight' : 0.7
+        'use_inv': True,
+        'use_sync': True,
+        'use_semantic': False,
+        'weight': 0.7
     }]     
     init_pattern_vecs()
     
     
     for config in configs:
-        data_dir = "../dataset/Promise/random_split/" # 随机划分的Promise训练-测试集
+        data_dir = "../dataset/Promise/random_split/"  # Randomly split Promise training-test sets
         for split_dir in os.listdir(data_dir):
             result_dir = "../expriment_result/Promise/RQ3/"
             test_data_path = data_dir + split_dir + "/promise_splited_" + split_dir.split('_')[1] + '_test.txt'
@@ -116,10 +116,10 @@ def RQ3():
 
 def RQ4():
     config = {  
-        'use_inv' : True,
-        'use_sync' : True,
-        'use_semantic' : True,
-        'weight' : 0.7
+        'use_inv': True,
+        'use_sync': True,
+        'use_semantic': True,
+        'weight': 0.7
     }
     init_pattern_vecs()
     
@@ -130,80 +130,79 @@ def RQ4():
         
     start_time = time.perf_counter()
     LQPR(test_data_path, result_dir, "LQPR", config)
-    # 记录函数结束后的时间
+    # Record time after function ends
     end_time = time.perf_counter()
-    # 计算函数执行时间，单位转换为毫秒
+    # Calculate function execution time, convert to milliseconds
     execution_time = (end_time - start_time) * 1000
-    print(f"LQPR执行时间: {execution_time:.2f} ms")
+    print(f"LQPR execution time: {execution_time:.2f} ms")
     
     start_time = time.perf_counter()
     ML_BOW_BAYES(train_data_path, test_data_path, result_dir, "ML_BOW_BAYES")
-    # 记录函数结束后的时间
+    # Record time after function ends
     end_time = time.perf_counter()
-    # 计算函数执行时间，单位转换为毫秒
+    # Calculate function execution time, convert to milliseconds
     execution_time = (end_time - start_time) * 1000
-    print(f"ML_BOW_BAYES执行时间: {execution_time:.2f} ms")
+    print(f"ML_BOW_BAYES execution time: {execution_time:.2f} ms")
     
     start_time = time.perf_counter()
     ML_BOW_KNN(train_data_path, test_data_path, result_dir, "ML_BOW_KNN")  
-    # 记录函数结束后的时间
+    # Record time after function ends
     end_time = time.perf_counter()
-    # 计算函数执行时间，单位转换为毫秒
+    # Calculate function execution time, convert to milliseconds
     execution_time = (end_time - start_time) * 1000
-    print(f"ML_BOW_KNN执行时间: {execution_time:.2f} ms")
+    print(f"ML_BOW_KNN execution time: {execution_time:.2f} ms")
     
     start_time = time.perf_counter()
     ML_TF_IDF_BAYES(train_data_path, test_data_path, result_dir, "ML_TF_IDF_BAYES")
-    # 记录函数结束后的时间
+    # Record time after function ends
     end_time = time.perf_counter()
-    # 计算函数执行时间，单位转换为毫秒
+    # Calculate function execution time, convert to milliseconds
     execution_time = (end_time - start_time) * 1000
-    print(f"ML_TF_IDF_BAYES执行时间: {execution_time:.2f} ms")
+    print(f"ML_TF_IDF_BAYES execution time: {execution_time:.2f} ms")
     
     start_time = time.perf_counter()
     ML_TF_IDF_KNN(train_data_path, test_data_path, result_dir, "ML_TF_IDF_KNN")
-    # 记录函数结束后的时间
+    # Record time after function ends
     end_time = time.perf_counter()
-    # 计算函数执行时间，单位转换为毫秒
+    # Calculate function execution time, convert to milliseconds
     execution_time = (end_time - start_time) * 1000
-    print(f"ML_TF_IDF_KNN执行时间: {execution_time:.2f} ms")
+    print(f"ML_TF_IDF_KNN execution time: {execution_time:.2f} ms")
     
     start_time = time.perf_counter()
     ZSL(test_data_path, result_dir, "ZSL")
-    # 记录函数结束后的时间
+    # Record time after function ends
     end_time = time.perf_counter()
-    # 计算函数执行时间，单位转换为毫秒
+    # Calculate function execution time, convert to milliseconds
     execution_time = (end_time - start_time) * 1000
-    print(f"ZSL执行时间: {execution_time:.2f} ms")
+    print(f"ZSL execution time: {execution_time:.2f} ms")
     
     start_time = time.perf_counter()
     PRETRAINED_BERT(model_dir, test_data_path, result_dir, "PRETRAINED_BERT")
-    # 记录函数结束后的时间
+    # Record time after function ends
     end_time = time.perf_counter()
-    # 计算函数执行时间，单位转换为毫秒
+    # Calculate function execution time, convert to milliseconds
     execution_time = (end_time - start_time) * 1000
-    print(f"PRETRAINED_BERT执行时间: {execution_time:.2f} ms")
+    print(f"PRETRAINED_BERT execution time: {execution_time:.2f} ms")
     
     start_time = time.perf_counter()
     LLM_TALK(test_data_path, result_dir, "LLM_TALK")
-    # 记录函数结束后的时间
+    # Record time after function ends
     end_time = time.perf_counter()
-    # 计算函数执行时间，单位转换为毫秒
+    # Calculate function execution time, convert to milliseconds
     execution_time = (end_time - start_time) * 1000
-    print(f"LLM_TALK执行时间: {execution_time:.2f} ms")
+    print(f"LLM_TALK execution time: {execution_time:.2f} ms")
 
 def example():
     config = {
-        'use_inv' : True,
-        'use_sync' : True,
-        'use_semantic' : True,
-        'weight' : 0.7
+        'use_inv': True,
+        'use_sync': True,
+        'use_semantic': True,
+        'weight': 0.7
     }
-    from LQPR import predicte, init_pattern_vecs
+    from LQPR import predict, init_pattern_vecs  # Note: 'predicte' changed to 'predict' in previous code
     init_pattern_vecs()
     sentence = "The time taken to add products to the shopping cart must not exceed 2 milliseconds."
-    print(predicte(sentence, config))
-    
+    print(predict(sentence, config))
     
 
 if __name__ == '__main__':

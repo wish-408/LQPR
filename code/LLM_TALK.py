@@ -20,45 +20,42 @@ def LLM_TALK(test_data_path, result_dir, save_name):
 
         question_path = '../prompt/question.txt'
         question = ''
-        with open(question_path,'r',encoding='utf-8') as f:
+        with open(question_path, 'r', encoding='utf-8') as f:
             for line in f:
                 question = question + line
 
         cnt = 0
         i = 0
-        predicte_labels = []
+        predicted_labels = []
         for sentence in sentences:
             
             stream = client.chat.completions.create(
-                model = model_name,
+                model=model_name,
                 messages=[{"role": "user", 
                         "content": question + '\n' + sentence}],
                 stream=True,
             )
-            predicte_label = ''
+            predicted_label = ''
             for chunk in stream:
-                predicte_label  = predicte_label + chunk.choices[0].delta.content
+                predicted_label = predicted_label + chunk.choices[0].delta.content
         
-            
             sign = 0
-            if real_labels[i] in predicte_label:
-                predicte_label = real_labels[i]
+            if real_labels[i] in predicted_label:
+                predicted_label = real_labels[i]
                 
-            else :
-
+            else:
                 for label in label_encode:
-                    if label in predicte_label :
-                        predicte_label = label
+                    if label in predicted_label:
+                        predicted_label = label
                         sign = 1
                         break    
         
             if sign:
-                predicte_labels.append(predicte_label)
-            else :
-                predicte_labels.append("0 -1")
+                predicted_labels.append(predicted_label)
+            else:
+                predicted_labels.append("0 -1")
             
             i += 1            
             
-        save_path = result_dir + get_date_time() + '_' + save_name + '_' +save_name + '_' + model_name.split('/')[0] + '.xlsx'
-        result_report(model_name, save_path, predicte_labels, real_labels)
-    
+        save_path = result_dir + get_date_time() + '_' + save_name + '_' + save_name + '_' + model_name.split('/')[0] + '.xlsx'
+        result_report(model_name, save_path, predicted_labels, real_labels)    

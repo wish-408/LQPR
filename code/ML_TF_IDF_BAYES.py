@@ -13,22 +13,21 @@ def ML_TF_IDF_BAYES(train_data_path, test_data_path, result_dir, save_name):
     X_train, y_train = load_data(train_data_path)
     X_test, real_labels = load_data(test_data_path)
 
-    # 从本地文件加载 TfidfVectorizer 对象
+    # Load TfidfVectorizer object from local file
     vectorizer = joblib.load('tfidf_vectorizer.pkl')
 
-    # 转换训练数据
+    # Transform training data
     X_train_tfidf = vectorizer.transform(X_train)
 
-    # 转换测试数据
+    # Transform test data
     X_test_tfidf = vectorizer.transform(X_test)
 
-    # 创建朴素贝叶斯分类器并训练模型
+    # Create and train Naive Bayes classifier
     nb_classifier = MultinomialNB()
     nb_classifier.fit(X_train_tfidf, y_train)
 
-    # 使用训练好的模型进行预测
-    predicte_labels = nb_classifier.predict(X_test_tfidf)
+    # Predict using the trained model
+    predicted_labels = nb_classifier.predict(X_test_tfidf)
 
     save_path = result_dir + get_date_time() + '_' + save_name + '.xlsx'
-    result_report("TF-IDF/NB", save_path, predicte_labels, real_labels)
-
+    result_report("TF-IDF/NB", save_path, predicted_labels, real_labels)

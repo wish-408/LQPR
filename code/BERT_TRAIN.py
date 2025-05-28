@@ -10,7 +10,7 @@ from memory_profiler import profile
 import psutil
 import time
 
-# 转换为Torch Dataset
+# Convert to Torch Dataset
 class SentenceDataset(torch.utils.data.Dataset):
     def __init__(self, encodings, labels):
         self.encodings = encodings
@@ -26,7 +26,7 @@ class SentenceDataset(torch.utils.data.Dataset):
     
 def compute_accuracy(p):
     preds, labels = p
-    preds = preds.argmax(axis=1)  # 获取预测标签
+    preds = preds.argmax(axis=1)  # Get predicted labels
     return {'accuracy': accuracy_score(labels, preds)}
 
 # @profile
@@ -37,7 +37,7 @@ def BERT_TRAIN():
     for split_dir in os.listdir(data_dir):
 
         output_path = "../bert_models_30/train" + split_dir
-        print("模型保存路径 : ",output_path)
+        print("Model save path:", output_path)
         
         if not os.path.exists(output_path):
             os.makedirs(output_path)
@@ -45,7 +45,7 @@ def BERT_TRAIN():
         sentences = []
         real_labels = []
         data_path = data_dir + split_dir + "/promise_splited_" + split_dir.split('_')[1] + '_train.txt'
-        print("训练数据集路径 : ", data_path)
+        print("Training dataset path:", data_path)
 
         sentences, real_labels = load_data(data_path)
 
@@ -62,19 +62,19 @@ def BERT_TRAIN():
         train_dataset = SentenceDataset(train_encodings, train_labels)
         val_dataset = SentenceDataset(val_encodings, val_labels)
 
-        # 模型训练
+        # Model training
         model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=9)
 
         training_args = TrainingArguments(
-            output_dir = output_path,
-            num_train_epochs = 10,
-            per_device_train_batch_size = 16,
-            per_device_eval_batch_size = 64,
-            eval_strategy = 'no',
-            save_strategy = 'no',  # 训练过程中不保存模型
-            logging_dir = None,
-            logging_steps = 1000000,
-            load_best_model_at_end = False
+            output_dir=output_path,
+            num_train_epochs=10,
+            per_device_train_batch_size=16,
+            per_device_eval_batch_size=64,
+            eval_strategy='no',
+            save_strategy='no',  # Do not save model during training
+            logging_dir=None,
+            logging_steps=1000000,
+            load_best_model_at_end=False
         )
 
         trainer = Trainer(
@@ -86,6 +86,5 @@ def BERT_TRAIN():
         )
         
         trainer.train()
-        # 训练结束后保存最终模型
-        model.save_pretrained(output_path)
-        
+        # Save the final model after training
+        model.save_pretrained(output_path)    
