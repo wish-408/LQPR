@@ -10,10 +10,10 @@ import torch.nn as nn
 from tools import load_data, result_report, get_date_time
 from memory_profiler import profile
 
-# 初始化设备
+# Initialize device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# 自定义数据集类
+# Custom dataset class
 class TextClassificationDataset(Dataset):
     def __init__(self, texts, labels, tokenizer, max_length=512):
         self.texts = texts
@@ -51,7 +51,7 @@ class RobertaClassifier(nn.Module):
         self.num_label = num_label
         self.model = AutoModel.from_pretrained('checkpoints/' + model_name)
         
-        # 关键修改1：输出层维度适配实际类别数
+        # Key modification 1: Adapt output layer dimension to actual number of classes
         self.linear = nn.Linear(self.model.config.hidden_size, num_label)  # 2 → num_label
         
         self.softmax = nn.Softmax(dim=-1)
@@ -69,7 +69,7 @@ class RobertaClassifier(nn.Module):
             last_hidden_state = outputs.last_hidden_state
             cls_emb = (last_hidden_state*attn_mask).sum(dim=1)/seq_len
         
-        # 添加dropout层
+        # Add dropout layer
         cls_emb = self.dropout(cls_emb)
         logits = self.linear(cls_emb)
         return logits
@@ -81,32 +81,32 @@ class RobertaClassifier(nn.Module):
             for batch_sample, batch_label in tqdm(loader, desc='infering'):
                 batch_sample = list(batch_sample)
                 
-                # 关键修改2：添加tokenizer参数避免警告
+                # Key modification 2: Add tokenizer parameter to avoid warnings
                 X = tokenizer(
                     batch_sample, 
                     return_tensors='pt', 
                     padding='longest',
                     max_length=512,
                     truncation=True,
-                    clean_up_tokenization_spaces=False  # 显式设置参数
+                    clean_up_tokenization_spaces=False  # Explicitly set parameter
                 ).to(device)
                 
                 logits = self.forward(X)
                 
-                # 关键修改3：修正预测结果获取方式
-                _, preds = torch.max(logits, dim=1)  # 直接获取最大概率索引
+                # Key modification 3: Correct way to get prediction results
+                _, preds = torch.max(logits, dim=1)  # Directly get index of maximum probability
                 
-                # 处理真实标签（假设batch_label是one-hot编码）
+                # Process true labels (assuming batch_label is one-hot encoded)
                 true_labels = torch.argmax(torch.LongTensor(batch_label), dim=1)
                 
-                # 更新混淆矩阵
+                # Update confusion matrix
                 for t, p in zip(true_labels, preds):
                     metrics[t, p] += 1
                     
         self.train()
         return metrics
 
-# 训练函数
+# Training function
 def train_model(model, label_encoder, train_loader, test_loader, num_epochs=3):
     
     optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)
@@ -117,7 +117,7 @@ def train_model(model, label_encoder, train_loader, test_loader, num_epochs=3):
         model.train()
         total_loss = 0
         
-        # 训练阶段
+        # Training phase
         progress_bar = tqdm(train_loader, desc=f"Epoch {epoch+1}/{num_epochs}")
         for batch in progress_bar:
             input_ids = batch["input_ids"].to(device)
@@ -137,7 +137,7 @@ def train_model(model, label_encoder, train_loader, test_loader, num_epochs=3):
         
     return model
 
-# 评估函数
+# Evaluation function
 def evaluate_model(model, label_encoder, test_loader, result_path):
     model.eval()
     predictions = []
@@ -155,19 +155,19 @@ def evaluate_model(model, label_encoder, test_loader, result_path):
             predictions.extend(preds.cpu().numpy())
             true_labels.extend(labels)
     
-    # 转换回原始标签
+    # Convert back to original labels
     pred_labels = label_encoder.inverse_transform(predictions)
     true_labels = label_encoder.inverse_transform(true_labels)
     
     result_report("PRCBERT", result_path, pred_labels, true_labels)
-    # 生成分类报告
+    # Generate classification report
     report = classification_report(true_labels, pred_labels, output_dict=True)
     return {
         "accuracy": report["accuracy"],
         "detailed_report": report
     }
 
-# 模型保存
+# Model saving
 def save_checkpoint(model, label_encoder, filename):
     torch.save({
         "model_state_dict": model.state_dict(),
@@ -178,18 +178,18 @@ def save_checkpoint(model, label_encoder, filename):
 def load_checkpoint(filename):
     checkpoint = torch.load(filename, map_location=device, weights_only=False)
     
-    # 重建标签编码器
+    # Reconstruct label encoder
     label_encoder = LabelEncoder()
     label_encoder.classes_ = checkpoint['label_classes']
     
-    # 初始化模型结构（需与训练时完全一致）
+    # Initialize model structure (must be identical to training)
     model = RobertaClassifier(
         model_name='roberta-large',
         num_label=len(label_encoder.classes_),
-        pooler='mean'  # 假设使用mean池化
+        pooler='mean'  # Assuming mean pooling is used
     )
     
-    # 加载参数
+    # Load parameters
     model.load_state_dict(checkpoint['model_state_dict'])
     model.to(device)
     
@@ -202,16 +202,16 @@ def PRCBERT_train():
         test_data_path = f"./dataset/Promise/random_split/split_{i}/promise_splited_{i}_test.txt"
         sentences, real_labels = load_data(data_path)
         test_sentences, test_real_labels = load_data(test_data_path)
-        # 标签编码
+        # Label encoding
         label_encoder = LabelEncoder()
-        label_encoder.fit(real_labels + test_real_labels)  # 确保包含所有可能标签
+        label_encoder.fit(real_labels + test_real_labels)  # Ensure all possible labels are included
         encoded_train_labels = label_encoder.transform(real_labels)
         encoded_test_labels = label_encoder.transform(test_real_labels)
         
-        # 初始化tokenizer
+        # Initialize tokenizer
         tokenizer = AutoTokenizer.from_pretrained("checkpoints/roberta-large")
         
-        # 创建数据集
+        # Create dataset
         train_dataset = TextClassificationDataset(
             texts=sentences,
             labels=encoded_train_labels,
@@ -223,7 +223,7 @@ def PRCBERT_train():
             tokenizer=tokenizer
         )
         
-        # 创建数据加载器
+        # Create data loader
         train_loader = DataLoader(
             train_dataset,
             batch_size=4,
@@ -240,7 +240,7 @@ def PRCBERT_train():
         print("load data success")
         
         
-        # 初始化模型
+        # Initialize model
         model = RobertaClassifier(
             model_name="roberta-large",
             num_label=len(label_encoder.classes_),
@@ -253,19 +253,19 @@ def PRCBERT_train():
                 map_location=device,
                 weights_only=True
             )
-        except TypeError:  # 处理旧版本兼容
+        except TypeError:  # Handle backward compatibility
             loaded_state_dict = torch.load(
                 "checkpoints/state_dict_finetuned_on_promise",
                 map_location=device
             )
-        # 参数过滤
+        # Parameter filtering
         model_dict = model.state_dict()
         filtered_dict = {k: v for k, v in loaded_state_dict.items() 
                         if k in model_dict and v.shape == model_dict[k].shape}
-        # 加载参数（允许部分缺失）
+        # Load parameters (allow partial missing)
         model.load_state_dict(filtered_dict, strict=False)
         print("load model success")
-        # 训练模型
+        # Train model
         trained_model = train_model(model, label_encoder, train_loader, test_loader, num_epochs=1)   
         if not os.path.exists(f"../PRCBERT_model/trainsplit_{i}/"):
             os.makedirs(f"../PRCBERT_model/trainsplit_{i}/")
@@ -286,7 +286,7 @@ def preprocess_text(text):
 def predict_single(text):
     inputs = preprocess_text(text)
     model, label_encoder = load_checkpoint("final_model.pth")
-    model.eval()  # 切换到预测模式
+    model.eval()  # Switch to prediction mode
     print("load model success")
     with torch.no_grad():
         outputs = model(inputs)
@@ -297,13 +297,13 @@ def predict_single(text):
 def PRCBERT(model_path, test_data_path, result_dir, save_name, tokenizer_path = "../PRCBERT_model/roberta-large"):
 
     model, label_encoder = load_checkpoint(model_path)
-    model.eval()  # 切换到预测模式
+    model.eval()  # Switch to prediction mode
     print("load model success")
     
     test_sentences, test_real_labels = load_data(test_data_path)
     encoded_test_labels = label_encoder.transform(test_real_labels)
     
-    # 初始化tokenizer
+    # Initialize tokenizer
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
     
     test_dataset = TextClassificationDataset(
@@ -319,8 +319,7 @@ def PRCBERT(model_path, test_data_path, result_dir, save_name, tokenizer_path = 
     )
     print("load data success")
     
-    # 评估阶段
+    # Evaluation phase
     result_path = result_dir + get_date_time() + '_' + save_name + '.xlsx'
     eval_results = evaluate_model(model, label_encoder, test_loader, result_path)
     print(f"Evaluation Results:\n{eval_results}")
-            
