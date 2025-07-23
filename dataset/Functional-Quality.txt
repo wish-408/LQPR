@@ -1,0 +1,10 @@
+1@ReqView Desktop shall start in less than 10s. @0 -1
+2@The very first time it shall start in less than 30s.@0 -1
+3@User shall be able to work with documents up to 1000 objects.@1 0
+4@User shall be able to work with documents up to 100 file attachments.@1 0
+5@User shall be able to work with documents up to 100MB in size.@1 0
+6@Response time for common edit operations (change attributes and structure) shall be less than 1s.@0 -1
+7@Opening or saving a local file shall took less than 10s.@0 -1
+8@Scrolling requirements table shall be smooth with jerks shorter than 200ms@0 -1
+9@Routine patching of the system shall be possible with minimal (i.e. less than 5 minutes) downtime.@0 -1
+10@Routine patching of the system shall be possible with no more than 1 hours downtime.@0 -1

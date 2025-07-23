@@ -6,6 +6,7 @@ from ML_TF_IDF_KNN import ML_TF_IDF_KNN
 from PRETRAINED_BERT import PRETRAINED_BERT
 from LLM_TALK import LLM_TALK
 from BERT_TRAIN import BERT_TRAIN
+from PRCBERT import PRCBERT, PRCBERT_train
 from ZSL import ZSL
 import os
 import time
@@ -14,6 +15,8 @@ import time
 # Train 30 BERT models
 def bert_train(): 
     BERT_TRAIN()
+def prcbert_train():
+    PRCBERT_train()
 
 # Experiment 1
 def RQ1():
@@ -30,6 +33,7 @@ def RQ1():
     for split_dir in os.listdir(data_dir):
         print(split_dir)
 
+        prcbert_model_path = "../PRCBERT_model/train" + split_dir + "/model.pth"
         model_dir = "../bert_models_30/train" + split_dir + "/"
         result_dir = "../expriment_result/Promise/RQ1/"
         train_data_path = data_dir + split_dir + "/promise_splited_" + split_dir.split('_')[1] + '_train.txt'
@@ -43,7 +47,7 @@ def RQ1():
         ZSL(test_data_path, result_dir, "ZSL")
         PRETRAINED_BERT(model_dir, test_data_path, result_dir, "PRETRAINED_BERT")
         LLM_TALK(test_data_path, result_dir, "LLM_TALK")
-        
+        PRCBERT(prcbert_model_path, test_data_path, result_dir, "PRCBERT")        
 def RQ2():
     config = {  
         'use_inv': True,
@@ -52,7 +56,7 @@ def RQ2():
         'weight': 0.7
     }
     init_pattern_vecs()
-    test_data_dirs = ["PURE", "Shaukat_et_al", "LLM-GEN"]
+    test_data_dirs = ["PURE", "Shaukat_et_al", "LLM-GEN", "Functional-Quality"]
     for test_data_dir in test_data_dirs:
         print(test_data_dir)
         result_dir = "../expriment_result/" + test_data_dir + "/" + "RQ2/"
@@ -62,6 +66,7 @@ def RQ2():
         for split_dir in os.listdir(train_data_dirs):
             train_data_path = train_data_dirs + split_dir + "/promise_splited_" + split_dir.split('_')[1] + '_train.txt'
             model_dir = "../bert_models_30/train" + split_dir + "/"
+            prcbert_model_path = "../PRCBERT_model/train" + split_dir + "/model.pth"
             
             LQPR(test_data_path, result_dir, "LQPR", config)
             ML_BOW_BAYES(train_data_path, test_data_path, result_dir, "ML_BOW_BAYES")
@@ -71,6 +76,7 @@ def RQ2():
             ZSL(test_data_path, result_dir, "ZSL")
             PRETRAINED_BERT(model_dir, test_data_path, result_dir, "PRETRAINED_BERT")
             LLM_TALK(test_data_path, result_dir, "LLM_TALK")
+            PRCBERT(prcbert_model_path, test_data_path, result_dir, "PRCBERT")        
             
         
 def RQ3():
@@ -108,7 +114,7 @@ def RQ3():
             test_data_path = data_dir + split_dir + "/promise_splited_" + split_dir.split('_')[1] + '_test.txt'
             # LQPR(test_data_path, result_dir, "LQPR", config)
             
-        test_data_dirs = ["PURE", "Shaukat_et_al", "LLM-GEN"]
+        test_data_dirs = ["PURE", "Shaukat_et_al", "LLM-GEN", "Functional-Quality"]
         for test_data_dir in test_data_dirs:
             result_dir = "../expriment_result/" + test_data_dir + "/" + "RQ3/"
             test_data_path = "../dataset/" + test_data_dir + ".txt"
@@ -127,6 +133,7 @@ def RQ4():
     result_dir = "../expriment_result/Promise/RQ1/"
     train_data_path = '../dataset/Promise/random_split/split_0/promise_splited_0_train.txt'
     test_data_path = '../dataset/Promise/random_split/split_0/promise_splited_0_test.txt'
+    prcbert_model_path = "../PRCBERT_model/trainsplit_0/model.pth"
         
     start_time = time.perf_counter()
     LQPR(test_data_path, result_dir, "LQPR", config)
@@ -192,6 +199,14 @@ def RQ4():
     execution_time = (end_time - start_time) * 1000
     print(f"LLM_TALK execution time: {execution_time:.2f} ms")
 
+    start_time = time.perf_counter()
+    PRCBERT(prcbert_model_path, test_data_path, result_dir, "PRCBERT")
+    # Record time after function ends
+    end_time = time.perf_counter()
+    # Calculate function execution time, convert to milliseconds
+    execution_time = (end_time - start_time) * 1000
+    print(f"PRCBERT execution time: {execution_time:.2f} ms")
+    
 def example():
     config = {
         'use_inv': True,
@@ -207,6 +222,7 @@ def example():
 
 if __name__ == '__main__':
     # bert_train()
+    # PRCBERT_train()
     # RQ1()
     # RQ2()
     # RQ3()
