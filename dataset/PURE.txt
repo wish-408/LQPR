@@ -1,3 +1,4 @@
+1@The system shall be able to handle 10000 concurrent users without performance degradation.@1 0
 2@Upon the USB being plugged in the system shall be able to be deployed and operational in less than 1 minute.@0 -1
 3@The system shall be able to handle 1000 customers logged in concurrently at the same time.@1 0
 4@The system shall be able to retrieve 200 products per second.@1 0
@@ -8,11 +9,14 @@
 9@The system shall be able to acquire shipping charges in less than 2 seconds.@0 -1
 10@The system shall be able to restore 1000 records per second.@1 0
 11@The system shall have an availability of 99.99%.@1 0
+12@Cache hit ratio shall be maintained above 90% for frequently accessed data.@1 0
 13@Query times will take no longer than 5 seconds to any website.@0 -1
 14@Sending the hyperlink to the default browser will take less than 1 second.@0 -1
 15@Loading the program will take less than 10 seconds.@0 -1
 16@Sorting results should take less than 0.1 seconds.@0 -1
 17@A results page will display 100 results.@1 -1
+18@The system shall be able to process user authentication requests in less than 500 milliseconds.@0 -1
+19@The system shall maintain a maximum memory usage of 2GB under normal operating conditions.@1 0
 20@ETCS is required to be functional to a maximum speed of 500 km/h.@1 0
 21@If acknowledgement is specified the driver shall acknowledge transfer from Full Supervision to Partial Supervision within 5 seconds@0 -1
 22@Data to enable investigation of accidents need only be stored for at least 24 hours, and shall be very detailed.@1 0
