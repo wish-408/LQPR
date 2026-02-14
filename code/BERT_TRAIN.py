@@ -39,8 +39,8 @@ def BERT_TRAIN():
         output_path = "../bert_models_30/train" + split_dir
         print("Model save path:", output_path)
         
-        if not os.path.exists(output_path):
-            os.makedirs(output_path)
+        
+        os.makedirs(output_path, exist_ok=True)
         
         sentences = []
         real_labels = []
@@ -67,6 +67,7 @@ def BERT_TRAIN():
 
         training_args = TrainingArguments(
             output_dir=output_path,
+            report_to="none",
             num_train_epochs=10,
             per_device_train_batch_size=16,
             per_device_eval_batch_size=64,

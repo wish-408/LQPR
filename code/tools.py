@@ -223,6 +223,10 @@ def load_data(data_path):
     return sentences, real_labels
 
 def write_to_excel(path, data):
+    directory = os.path.dirname(path)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+
     if not os.path.exists(path):
         new_file = pd.DataFrame()
         new_file.to_excel(path, header=True, index=False)

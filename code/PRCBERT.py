@@ -198,8 +198,8 @@ def load_checkpoint(filename):
 # @profile
 def PRCBERT_train():
     for i in range(30):
-        data_path = f"./dataset/Promise/random_split/split_{i}/promise_splited_{i}_train.txt"
-        test_data_path = f"./dataset/Promise/random_split/split_{i}/promise_splited_{i}_test.txt"
+        data_path = f"../dataset/Promise/random_split/split_{i}/promise_splited_{i}_train.txt"
+        test_data_path = f"../dataset/Promise/random_split/split_{i}/promise_splited_{i}_test.txt"
         sentences, real_labels = load_data(data_path)
         test_sentences, test_real_labels = load_data(test_data_path)
         # Label encoding
