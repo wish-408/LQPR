@@ -178,7 +178,7 @@ def example():
 
 if __name__ == '__main__':
     # bert_train()
-    # RQ1()
+    RQ1()
     # RQ2()
     # RQ3()
     # RQ4()
